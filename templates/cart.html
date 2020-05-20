@@ -1,0 +1,320 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#7350FF" />
+    <link href="css/main.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
+    <title>Groceries Shoping</title>
+</head>
+<body>
+<div id="root">
+    <main class="App">
+        <section class="products">
+            <h1 class="main">Shopping cart</h1>
+            <ul class="products-list tableHead">
+                <li class="products-list-title row">
+                    <div class="col-product">Product details</div>
+                    <div class="col-quantity">Quantity</div>
+                    <div class="col-price">Price</div>
+                    <div class="col-total">Remove from Cart</div>
+                </li>
+            </ul>
+            <ul class="products-list">
+                <li class="product row">
+                    <div class="col-product">
+                        <figure class="product-image">
+                            <img src="img/Apples.jpg" alt="Apples" />
+                            <div class="product-description">
+                                <h1>Apples</h1>
+                                <p class="product-code">Mouth watering Fruit</p>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="col-quantity">
+                        <button class="minus-btn" type="button" name="button" value="1">
+                            <img src="img/minus.svg" alt="" />
+                        </button>
+                        <input type="text" class="product-quantity" value="0" id="Apples" productid="0"/>
+                        <button class="plus-btn" type="button" name="button" value="1">
+                            <img src="img/plus.svg" alt="" />
+                        </button>
+                    </div>
+                    <div class="col-price">
+                        <span class="product-price">5</span>
+                        <span class="product-currency currency">€</span>
+                    </div>
+                    <div class="col-total">
+                        <button class="cart-btn" type="button" name="button">
+                            <img src="img/cart.svg" alt="" />
+                        </button>
+                    </div>
+                </li>
+                <li class="product row">
+                    <div class="col-product">
+                        <figure class="product-image">
+                            <img src="img/Oranges.jpg" alt="Oranges" />
+                            <div class="product-description">
+                                <h1>Oranges</h1>
+                                <p class="product-code">Mouth watering Fruit</p>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="col-quantity">
+                        <button class="minus-btn" type="button" name="button">
+                            <img src="img/minus.svg" alt="" />
+                        </button>
+                        <input type="text" class="product-quantity" value="0" id="Oranges" productid="3"/>
+                        <button class="plus-btn" type="button" name="button">
+                            <img src="img/plus.svg" alt="" />
+                        </button>
+                    </div>
+                    <div class="col-price">
+                        <span class="product-price">20</span>
+                        <span class="product-currency currency">€</span>
+                    </div>
+                    <div class="col-total">
+                        <button class="cart-btn" type="button" name="button">
+                            <img src="img/cart.svg" alt="" />
+                        </button>
+                    </div>
+                </li>
+                <li class="product row">
+                    <div class="col-product">
+                        <figure class="product-image">
+                            <img src="img/Bananas.jpg" alt="Bananas" />
+                            <div class="product-description">
+                                <h1>Banana</h1>
+                                <p class="product-code">Mouth watering Fruit</p>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="col-quantity">
+                        <button class="minus-btn" type="button" name="button">
+                            <img src="img/minus.svg" alt="" />
+                        </button>
+                        <input type="text" class="product-quantity" value="0" id="Bananas" productid="1"/>
+                        <button class="plus-btn" type="button" name="button">
+                            <img src="img/plus.svg" alt="" />
+                        </button>
+                    </div>
+                    <div class="col-price">
+                        <span class="product-price">10</span>
+                        <span class="product-currency currency">€</span>
+                    </div>
+                    <div class="col-total">
+                        <button class="cart-btn" type="button" name="button">
+                            <img src="img/cart.svg" alt="" />
+                        </button>
+                    </div>
+                </li>
+                <li class="product row">
+                    <div class="col-product">
+                        <figure class="product-image">
+                            <img src="img/Pears.jpg" alt="Pears" />
+                            <div class="product-description">
+                                <h1>Pears</h1>
+                                <p class="product-code">Mouth watering Fruit</p>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="col-quantity">
+                        <button class="minus-btn" type="button" name="button">
+                            <img src="img/minus.svg" alt="" />
+                        </button>
+                        <input type="text" class="product-quantity" value="0" id="Pears" productid="2"/>
+                        <button class="plus-btn" type="button" name="button">
+                            <img src="img/plus.svg" alt="" />
+                        </button>
+                    </div>
+                    <div class="col-price">
+                        <span class="product-price">15</span>
+                        <span class="product-currency currency">€</span>
+                    </div>
+                    <div class="col-total">
+                        <button class="cart-btn" type="button" name="button">
+                            <img src="img/cart.svg" alt="" />
+                        </button>
+                    </div>
+                </li>
+				<div><input type="text" class="products-promo" value="Enter Promo Code here" id="Promocode"/></div>
+            </ul>
+        </section>
+        <aside class="summary">
+            <h1 class="main">Order Summary</h1>
+            <ul class="summary-items wrapper border" id=orders>
+                <li id=order1>
+              <span class="summary-items-number">Item1</span>
+			  <span class="summary-items-qty">0</span>
+			  <span class="summary-items-price">0<span class="currency">€</span></span>
+                </li>
+				<li id=order2>
+              <span class="summary-items-number">Item2</span>
+			  <span class="summary-items-qty">0</span>
+			  <span class="summary-items-price">0<span class="currency">€</span></span>
+                </li>
+				<li id=order3>
+              <span class="summary-items-number">Item3</span>
+			  <span class="summary-items-qty">0</span>
+			  <span class="summary-items-price">0<span class="currency">€</span></span>
+                </li>
+				<li id=order4>
+              <span class="summary-items-number">Item4</span>
+			  <span class="summary-items-qty">0</span>
+			  <span class="summary-items-price">0<span class="currency">€</span></span>
+                </li>
+            </ul>
+            <div class="summary-discounts wrapper-half border">
+                <h2>Total Savings</h2>
+                <ul>
+                    <li><span>Discount Applied</span><span id="savings">0 €</span></li>
+                </ul>
+            </div>
+            <div class="summary-total wrapper">
+                <ul>
+                    <li>
+                <span class="summary-total-cost">Total cost in €</span>
+				<span class="summary-total-price" id="totalcost">0</span>
+                    </li>
+                </ul>
+                <button type="submit" class="checkout">Checkout</button>
+            </div>
+        </aside>
+    </main>
+</div>
+</body>
+<script type="text/javascript">
+
+    $('.minus-btn').on('click', function(e) {
+        e.preventDefault();
+        var $this = $(this);
+        var $input = $this.closest('div').find('input');
+        var value = parseInt($input.val());
+
+        if (value > 1) {
+            value = value - 1;
+        } else {
+            value = 0;
+        }
+
+        createOrder($input, value);
+		sum();
+        $input.val(value);
+
+    });
+
+    $('.plus-btn').on('click', function(e) {
+
+        e.preventDefault();
+        var $this = $(this);
+        var $input = $this.closest('div').find('input');
+        var value = parseInt($input.val());
+
+        if (value < 100) {
+            value = value + 1;
+        } else {
+            value =100;
+        }
+        createOrder($input, value);
+		sum();
+        $input.val(value);
+    });
+
+	
+	$('.cart-btn').on('click', function(e) {
+        e.preventDefault();
+	
+		var xmlHttp = new XMLHttpRequest();
+		var $this = $(this);
+		var $input = $this.closest('li').find('input');
+		var pid = parseInt($input.attr("productid"));
+        var body = {"PID":pid};
+			$("#order1 .summary-items-number").text("Item1");
+			$("#order1 .summary-items-qty").text("0");
+			$("#order1 .summary-items-price").text("0 €");
+			$("#order2 .summary-items-number").text("Item2");
+			$("#order2 .summary-items-qty").text("0");
+			$("#order2 .summary-items-price").text("0 €");
+			$("#order3 .summary-items-number").text("Item3");
+			$("#order3 .summary-items-qty").text("0");
+			$("#order3 .summary-items-price").text("0 €");
+			$("#order4 .summary-items-number").text("Item4");
+			$("#order4 .summary-items-qty").text("0");
+			$("#order4 .summary-items-price").text("0 €");
+		
+		xmlHttp.onload = () => {
+            responseData = JSON.parse(xmlHttp.response);
+			$input.val(0);
+			sum();
+			loadCart(responseData);
+        }
+		
+        xmlHttp.open( "DELETE", "http://localhost:8000/deleteOrder" );
+        xmlHttp.setRequestHeader('Content-Type', 'application/json');
+        xmlHttp.send(JSON.stringify(body));
+		
+	});
+	
+	$('.checkout').on('click', function(e) {
+        e.preventDefault();
+	
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.onload = () => {
+			window.location = xmlHttp.responseURL;
+		}
+        xmlHttp.open( "GET", "http://localhost:8000/payment" );
+        xmlHttp.send();
+		
+	});
+
+    function createOrder(input, v){
+		var responseData;
+        var xmlHttp = new XMLHttpRequest();
+        var pid = parseInt(input.attr("productid"));
+		var pdesc = input.attr("id");
+		var pcode = $('#Promocode').val();
+        var body = {"PID":pid,"Description":pdesc,"Quantity":v,"Coupon":pcode};
+		var i;
+		
+		xmlHttp.onload = () => {
+            responseData = JSON.parse(xmlHttp.response);
+			loadCart(responseData);
+        }
+		
+        xmlHttp.open( "POST", "http://localhost:8000/createOrder" );
+        xmlHttp.setRequestHeader('Content-Type', 'application/json');
+        xmlHttp.send(JSON.stringify(body));
+    }
+	
+	function sum(){
+	
+		var xmlHttp = new XMLHttpRequest();
+		
+		xmlHttp.onload = () => {
+            responseData = JSON.parse(xmlHttp.response);
+			$("#totalcost").text(responseData.Total)
+			$("#savings").text(responseData.Savings + " €")
+        }
+		
+        xmlHttp.open( "GET", "http://localhost:8000/getsum" );
+        xmlHttp.send();
+	}
+	
+	function loadCart(responseData){
+			$("#order1 .summary-items-number").text(responseData[0].Description);
+			$("#order1 .summary-items-qty").text(responseData[0].Quantity);
+			$("#order1 .summary-items-price").text(responseData[0].OrderTotal + " €");
+			$("#order2 .summary-items-number").text(responseData[1].Description);
+			$("#order2 .summary-items-qty").text(responseData[1].Quantity);
+			$("#order2 .summary-items-price").text(responseData[1].OrderTotal + " €");
+			$("#order3 .summary-items-number").text(responseData[2].Description);
+			$("#order3 .summary-items-qty").text(responseData[2].Quantity);
+			$("#order3 .summary-items-price").text(responseData[2].OrderTotal + " €");
+			$("#order4 .summary-items-number").text(responseData[3].Description);
+			$("#order4 .summary-items-qty").text(responseData[3].Quantity);
+			$("#order4 .summary-items-price").text(responseData[3].OrderTotal + " €");
+	}
+
+</script>
+</html>

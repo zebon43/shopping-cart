@@ -1,0 +1,45 @@
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/login.css">
+  <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
+  <title>Sign in</title>
+</head>
+
+<body>
+  <div class="main">
+    <p class="sign" align="center">Sign in</p>
+    <form class="form1">
+      <input class="user" type="text" align="center" placeholder="Username" id=user>
+      <input class="pass" type="password" align="center" placeholder="Password" id=pass>
+      <a class="submit" align="center">Sign in</a>
+	  </form>
+	  <div id="status" align="center"></div>
+    </div>
+</body>
+<script>
+	$('.submit').on('click', function(e) {
+        e.preventDefault();
+	
+		var xmlHttp = new XMLHttpRequest();
+		var user = $("#user").val();
+		var pass = $("#pass").val();
+        var body = {"UserID":user,"Password":pass};
+		xmlHttp.onload = () => {
+		if (xmlHttp.status == 401) {
+		responseData = xmlHttp.responseText;
+		$('#status').text(responseData);
+		} 
+		else {
+		console.log(xmlHttp.status)
+		window.location = xmlHttp.responseURL;
+		}
+        }
+        xmlHttp.open( "POST", "http://localhost:8000/userAuth" );
+		xmlHttp.setRequestHeader('Content-Type', 'application/json');
+        xmlHttp.send(JSON.stringify(body));
+	});
+</script>
+</html>

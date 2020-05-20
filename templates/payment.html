@@ -1,0 +1,42 @@
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/payment.css">
+  <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
+  <title>Payment Gateway</title>
+</head>
+
+<body>
+  <div class="main">
+    <p class="payment" align="center">Payment</p>
+    <form class="form1">
+      <input class="card" type="text" align="center" placeholder="Card Number" id=card>
+	  <input class="month" type="text" align="center" placeholder="Expiry month in mm." id=month>
+	  <input class="year" type="text" align="center" placeholder="Expiry year in yyyy." id=year>
+      <input class="cvv" type="password" align="center" placeholder="CVV" id=cvv>
+      <a class="submit" align="center">Submit</a>
+	  </form>
+	  <div id="status" align="center"></div>
+    </div>
+</body>
+<script>
+	$('.submit').on('click', function(e) {
+        e.preventDefault();
+	
+		var xmlHttp = new XMLHttpRequest();
+		var card = parseInt($("#card").val());
+		var month = parseInt($("#month").val());
+		var year = parseInt($("#year").val());
+		var cvv = parseInt($("#cvv").val());
+        var body = {"CardNo":card,"ExpiryM":month,"ExpiryY":year,"CVV":cvv};
+		xmlHttp.onload = () => {
+		$('#status').text(xmlHttp.responseText);
+        }
+        xmlHttp.open( "POST", "http://localhost:8000/processpayment" );
+		xmlHttp.setRequestHeader('Content-Type', 'application/json');
+        xmlHttp.send(JSON.stringify(body));
+	});
+</script>
+</html>
